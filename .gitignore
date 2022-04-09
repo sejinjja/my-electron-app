@@ -1,0 +1,29 @@
+.DS_Store
+node_modules/
+/dist/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Editor directories and files
+.idea
+.vscode
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.project
+.settings
+
+#build dependency
+/target/
+/maven-node-dependency/
+
+/dist_web/
+
+/dist_dev/
+
+local.js
+
+deploy-target*.properties
+deploy-target*.json
