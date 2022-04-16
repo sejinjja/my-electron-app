@@ -11,7 +11,11 @@ const createWindow = () => {
     }
   })
 
-  win.loadURL('http://localhost:8080')
+  if(process.env.NODE_ENV === 'dev') {
+    win.loadURL('http://localhost:8080')
+  } else {
+    win.loadFile('dist_web/index.html')
+  }
   win.webContents.openDevTools()
 }
 
