@@ -4,12 +4,23 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "electron ."
+    "start": "cross-env NODE_ENV=dev electron .",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "electron": "^18.0.1"
+    "cross-env": "^7.0.3",
+    "electron": "^18.0.1",
+    "electron-builder": "^23.0.3"
+  },
+  "homepage": "./",
+  "build": {
+    "appId": "sejiowrk.clipboard.util",
+    "mac": {
+      "category": "sejiowrk.clipboard.util"
+    }
   }
 }
