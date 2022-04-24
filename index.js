@@ -1,10 +1,9 @@
-
 const {app, BrowserWindow} = require('electron')
 const path = require('path')
-const { autoUpdater } = require('electron-updater')
+const {autoUpdater} = require('electron-updater')
 const log = require('electron-log')
 
-const createWindow = () => {
+const createWindow = (devMode) => {
   const win = new BrowserWindow({
     width: 800,
     height: 600,
@@ -13,7 +12,7 @@ const createWindow = () => {
     }
   })
 
-  if(process.env.NODE_ENV === 'dev') {
+  if (devMode) {
     win.loadURL('http://localhost:8080')
   } else {
     win.loadFile('dist_web/index.html')
@@ -22,7 +21,11 @@ const createWindow = () => {
 }
 
 app.whenReady().then(() => {
-  autoUpdater.checkForUpdates()
+  if (process.env.NODE_ENV === 'dev') {
+    createWindow(true)
+  } else {
+    autoUpdater.checkForUpdates()
+  }
 })
 
 autoUpdater.autoDownload = false
