@@ -22,5 +22,9 @@
     "mac": {
       "category": "sejiowrk.clipboard.util"
     }
+  },
+  "dependencies": {
+    "electron-log": "^4.4.6",
+    "electron-updater": "^5.0.1"
   }
 }

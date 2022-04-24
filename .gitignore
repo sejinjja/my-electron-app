@@ -27,3 +27,4 @@ local.js
 
 deploy-target*.properties
 deploy-target*.json
+package-lock.json
