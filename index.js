@@ -28,6 +28,10 @@ app.whenReady().then(() => {
   }
 })
 
+app.on('window-all-closed', () => {
+  app.quit()
+})
+
 autoUpdater.autoDownload = false
 
 autoUpdater.on('checking-for-update', () => {
@@ -55,8 +59,4 @@ autoUpdater.on('update-downloaded', (info) => {
   setImmediate(() => {
     autoUpdater.quitAndInstall()
   })
-})
-
-app.on('window-all-closed', () => {
-  app.quit()
 })
