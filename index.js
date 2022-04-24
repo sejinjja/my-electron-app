@@ -1,4 +1,4 @@
-const {app, BrowserWindow} = require('electron')
+const {app, BrowserWindow, Menu} = require('electron')
 const path = require('path')
 const {autoUpdater} = require('electron-updater')
 const log = require('electron-log')
@@ -31,6 +31,17 @@ app.whenReady().then(() => {
 app.on('window-all-closed', () => {
   app.quit()
 })
+
+const templates = [{
+  label: app.getName(),
+  submenu: [
+    {
+      label: app.getVersion()
+    }]
+}]
+
+const menu = Menu.buildFromTemplate(templates)
+Menu.setApplicationMenu(menu)
 
 autoUpdater.autoDownload = false
 
