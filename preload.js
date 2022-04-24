@@ -1,5 +1,5 @@
 
-const { contextBridge }  = require('electron')
+const { contextBridge, app }  = require('electron')
 const fs = require('fs').promises
 const path = require('path')
 
@@ -10,6 +10,14 @@ contextBridge.exposeInMainWorld(
     },
     readFile(fileName, ...args) {
       return fs.readFile(path.join(__dirname, fileName), ...args)
+    }
+  },
+  'app', {
+    version() {
+      return app.getVersion()
+    },
+    name() {
+      return app.getName()
     }
   }
 )
